@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 Tháng Yêu Nhau 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe6eb, #fff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #c2185b;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .option {
+      padding: 12px;
+      border-radius: 15px;
+      background: #fff;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.25s ease;
+    }
+    .option img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .option span {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .option:hover {
+      transform: translateY(-3px);
+    }
+    .option.selected {
+      border-color: #e91e63;
+      background: #fff0f5;
+    }
+    button {
+      margin-top: 40px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #e91e63;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d81b60;
+    }
+    .result {
+      display: none;
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+      .intro {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e0, #fff);
+      text-align: center;
+      padding: 20px;
+    }
+    .intro-box {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+    }
+    .intro-box p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .intro-box button {
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro" id="intro">
+    <div class="intro-box">
+      <h1>💖 Chào em 💖</h1>
+      <p>25/01 này là một ngày đặc biệt.</p>
+      <p>Em hãy giúp anh tạo thêm sự thú vị cho hôm đó nha ✨</p>
+      <button onclick="start()">Bắt đầu cùng anh 💌</button>
+    </div>
+  </div>
+
+  <div class="container" id="main" style="display:none;">
+    <h1>💖 Kỷ niệm 3 tháng yêu nhau 💖</h1>
+
+    <h2>🎁 Quà tặng</h2>
+    <div class="options" data-group="gift">
+      <div class="option"><img src="https://picsum.photos/300/200?random=1"><span>Hoa 🌹</span></div>
+      <div class="option"><img src="images/gau.jpg"><span>Gấu bông 🧸</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=3"><span>Trang sức ✨</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=4"><span>Đồ đôi 👕</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=5"><span>Quà bí ẩn 🎁</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=6"><span>Thư tay 💌</span></div>
+    </div>
+
+    <h2>🍽️ Đi ăn</h2>
+    <div class="options" data-group="food">
+      <div class="option"><img src="https://picsum.photos/300/200?random=7"><span>Fine Dining</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=8"><span>Pub / Rooftop</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=9"><span>Quán quen kỷ niệm</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=10"><span>Buffet</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=11"><span>Ăn vặt dạo phố</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=12"><span>Nấu ăn cùng nhau</span></div>
+    </div>
+
+    <h2>💕 Hoạt động hẹn hò</h2>
+    <div class="options" data-group="activity">
+      <div class="option"><img src="https://picsum.photos/300/200?random=13"><span>Xem phim 🎬</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=14"><span>Đi dạo đêm 🌙</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=15"><span>Chụp ảnh couple 📸</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=16"><span>Workshop thủ công 🎨</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=17"><span>Chơi game / boardgame 🎲</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=18"><span>Viết thư cho nhau 💕</span></div>
+    </div>
+
+    <h2>🌸 Cảm xúc mong muốn</h2>
+    <div class="options" data-group="mood">
+      <div class="option"><img src="https://picsum.photos/300/200?random=19"><span>Bất ngờ 🎉</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=20"><span>Nhẹ nhàng 🌙</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=21"><span>Lãng mạn 💖</span></div>
+      <div class="option"><img src="https://picsum.photos/300/200?random=22"><span>Vui vẻ 😆</span></div>
+    </div>
+
+   <button onclick="sendEmail()">Gửi lựa chọn cho anh 💌</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function start() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    }
+    const selections = {};
+
+    document.querySelectorAll('.options').forEach(group => {
+      const groupName = group.dataset.group;
+      group.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', () => {
+          group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+          selections[groupName] = option.innerText;
+        });
+      });
+    });
+
+    function showResult() {
+      const resultDiv = document.getElementById('result');
+      if (Object.keys(selections).length < 4) {
+        alert('Em chọn đủ các mục giúp anh nhé 💕');
+        return;
+      }
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `
+        <h2>💌 Anh đã nhận được lựa chọn của em</h2>
+        <p><strong>🎁 Quà:</strong> ${selections.gift}</p>
+        <p><strong>🍽️ Đi ăn:</strong> ${selections.food}</p>
+        <p><strong>💕 Hoạt động:</strong> ${selections.activity}</p>
+        <p><strong>🌸 Cảm xúc:</strong> ${selections.mood}</p>
+        <p style="margin-top:20px; color:#e91e63;"><em>Dù em chọn gì, anh cũng rất vui vì được ở bên em.</em></p>
+      `;
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("e0avO7tvN53QVN7hc");
+  })();
+</script>
+<script>
+function sendEmail() {
+  if (!selections.gift || !selections.food || !selections.activity || !selections.mood) {
+    alert("Em chọn đủ các mục giúp anh nha 💕");
+    return;
+  }
+
+  emailjs.send(
+    "service_3tcl4dd",
+    "template_hb41gl6",
+    {
+      gift: selections.gift,
+      food: selections.food,
+      activity: selections.activity,
+      mood: selections.mood,
+      time: new Date().toLocaleString("vi-VN")
+    }
+  ).then(
+    function() {
+      document.getElementById("result").innerHTML = `
+        <h2>💌 Anh đã nhận được lựa chọn của em</h2>
+        <p>Anh sẽ chuẩn bị thật kỹ cho hôm đó 💖</p>
+      `;
+      document.getElementById("result").style.display = "block";
+    },
+    function(error) {
+      alert("Có lỗi xảy ra, em thử lại giúp anh nha 😢");
+      console.log(error);
+    }
+  );
+}
+</script>
+
+</body>
+</html>
